@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCartContext } from "../../app/hooks/useGameContext";
+import { useCartContext } from "../../app/hooks/useCartContext";
 import { cn } from "../../libs/cn";
 
 type AddToCartButtonProps = {
