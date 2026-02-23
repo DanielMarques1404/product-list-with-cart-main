@@ -43,19 +43,26 @@ export const AddToCartButton = ({
         "bg-red text-white justify-between px-4": qtdInCart > 0,
       })}
     >
-      <img
-        className="px-4 py-2 cursor-pointer "
-        src="./assets/images/icon-decrement-quantity.svg"
-        alt="Icon Remove From Cart"
+      <div
+        className="cursor-pointer border-2 border-white rounded-full w-5 h-5 flex items-center justify-center"
         onClick={handleRemoveFromCart}
-      />
+      >
+        <img
+          src="./assets/images/icon-decrement-quantity.svg"
+          alt="Icon Remove From Cart"
+        />
+      </div>
       <span>{qtdInCart}</span>
-      <img
-        className="px-4 py-2 cursor-pointer "
-        src="./assets/images/icon-increment-quantity.svg"
-        alt="Icon Add to Cart"
+      <div
+        className="cursor-pointer border-2 border-white rounded-full w-5 h-5 flex items-center justify-center"
         onClick={handleAddToCart}
-      />
+      >
+        <img
+          className="cursor-pointer"
+          src="./assets/images/icon-increment-quantity.svg"
+          alt="Icon Add to Cart"
+        />
+      </div>
     </div>
   );
 };
