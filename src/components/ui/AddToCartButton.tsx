@@ -1,27 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCartContext } from "../../app/hooks/useCartContext";
 import { cn } from "../../libs/cn";
+import type { ProductType } from "../../types/types";
 
 type AddToCartButtonProps = {
-  productName: string;
+  product: ProductType;
   classname: string;
 };
 
 export const AddToCartButton = ({
-  productName,
+  product,
   classname,
 }: AddToCartButtonProps) => {
-  const [qtdInCart, setQtdInCart] = useState(0);
-  const { addProductToCart, removeProductFromCart } = useCartContext();
+  const { productsInCart, addProductToCart, removeProductFromCart } =
+    useCartContext();
+  const [qtdInCart, setQtdInCart] = useState(
+    productsInCart.find((p) => p.product.name === product.name)?.qtd || 0,
+  );
+
+  useEffect(() => {
+    setQtdInCart(
+      productsInCart.find((p) => p.product.name === product.name)?.qtd || 0,
+    );
+  }, [productsInCart]);
 
   const handleAddToCart = () => {
-    addProductToCart(productName);
+    addProductToCart(product);
     setQtdInCart(qtdInCart + 1);
   };
 
   const handleRemoveFromCart = () => {
     if (qtdInCart > 0) {
-      removeProductFromCart(productName);
+      removeProductFromCart(product.name);
       setQtdInCart(qtdInCart - 1);
     }
   };

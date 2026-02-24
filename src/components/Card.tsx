@@ -14,7 +14,7 @@ export const Card = ({ product }: CardProps) => {
           alt="Product Image"
           className="rounded-xl"
         />
-        <AddToCartButton classname="absolute flex gap-2 items-center justify-center rounded-2xl p-2 border border-black shadow-xl w-3/4 z-1 -bottom-4.5 bg-white cursor-pointer" productName={product.name} />
+        <AddToCartButton classname="absolute flex gap-2 items-center justify-center rounded-2xl p-2 border border-black shadow-xl w-3/4 z-1 -bottom-4.5 bg-white cursor-pointer" product={product} />
       </div>
       <div className="flex flex-col items-start">
         <span className="text-rose-400">{product.category}</span>
