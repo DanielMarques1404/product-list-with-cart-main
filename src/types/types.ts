@@ -1,13 +1,18 @@
-export type ImageType = {
-    thumbnail: string;
-    mobile: string;
-    tablet: string;
-    desktop: string;
-}
+export type ProductImage = {
+  thumbnail: string;
+  mobile: string;
+  tablet: string;
+  desktop: string;
+};
 
-export type ProductType = {
-    image: ImageType;
-    name: string;
-    category: string;
-    price: number;
-}
+export type Product = {
+  image: ProductImage;
+  name: string;
+  category: string;
+  price: number;
+};
+
+export type ProductInCart = {
+  product: Product;
+  qty: number;
+};

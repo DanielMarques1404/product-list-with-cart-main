@@ -1,12 +1,8 @@
 import { useCartContext } from "../app/hooks/useCartContext";
-import type { ProductType } from "../types/types";
+import type { ProductInCart } from "../types/types";
 
-type CartItemProps = {
-  product: ProductType;
-  qtd: number;
-};
 
-export const CartItem = ({ product, qtd }: CartItemProps) => {
+export const CartItem = ({ product, qty }: ProductInCart) => {
   const { clearCart } = useCartContext();
 
   const handleRemoveItem = () => {
@@ -18,9 +14,9 @@ export const CartItem = ({ product, qtd }: CartItemProps) => {
       <div className="flex flex-col justify-center gap-2">
         <span className="font-medium">{product.name}</span>
         <div className="flex gap-2 items-center">
-          <span className="text-red font-bold">{`${qtd}x`}</span>
+          <span className="text-red font-bold">{`${qty}x`}</span>
           <span className="text-rose-400 font-small">{`@ $${Number(product.price).toFixed(2)}`}</span>
-          <span className="text-rose-500 font-medium">{`$${Number(product.price * qtd).toFixed(2)}`}</span>
+          <span className="text-rose-500 font-medium">{`$${Number(product.price * qty).toFixed(2)}`}</span>
         </div>
       </div>
 
@@ -37,13 +33,13 @@ export const CartItem = ({ product, qtd }: CartItemProps) => {
 export const Cart = () => {
   const { productsInCart } = useCartContext();
   const total = productsInCart.reduce(
-    (acc, p) => acc + p.product.price * p.qtd,
+    (acc, p) => acc + p.product.price * p.qty,
     0,
   );
 
   return (
-    <div className="flex flex-col bg-white w-full h-auto rounded-xl">
-      <h2 className="text-red">{`Your Cart (${productsInCart.reduce((acc, p) => acc + p.qtd, 0)})`}</h2>
+    <div className="flex flex-col bg-white w-full h-auto rounded-xl p-1">
+      <h2 className="text-red">{`Your Cart (${productsInCart.reduce((acc, p) => acc + p.qty, 0)})`}</h2>
       {productsInCart.length === 0 ? (
         <div className="flex flex-col gap-1 items-center justify-center mt-8 w-full">
           <img
@@ -56,12 +52,12 @@ export const Cart = () => {
         </div>
       ) : (
         <>
-          <ul>
+          <ul className="space-y-3">
             {productsInCart.map((productInCart, index) => (
               <li key={`inCart-${index}`}>
                 <CartItem
                   product={productInCart.product}
-                  qtd={productInCart.qtd}
+                  qty={productInCart.qty}
                 />
               </li>
             ))}

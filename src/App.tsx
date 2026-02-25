@@ -3,10 +3,10 @@ import "./App.css";
 import { CartProvider } from "./app/context/CartContext";
 import { Card } from "./components/Card";
 import { Cart } from "./components/Cart";
-import type { ProductType } from "./types/types";
+import type { Product } from "./types/types";
 
 function App() {
-  const [data, setData] = useState<ProductType[]>([]);
+  const [data, setData] = useState<Product[]>([]);
 
   useEffect(() => {
     fetch("./data.json")

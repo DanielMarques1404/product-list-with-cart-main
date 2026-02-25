@@ -1,8 +1,8 @@
-import type { ProductType } from "../types/types";
+import type { Product } from "../types/types";
 import { AddToCartButton } from "./ui/AddToCartButton";
 
 type CardProps = {
-  product: ProductType;
+  product: Product;
 };
 
 export const Card = ({ product }: CardProps) => {

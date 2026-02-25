@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useCartContext } from "../../app/hooks/useCartContext";
 import { cn } from "../../libs/cn";
-import type { ProductType } from "../../types/types";
+import type { Product } from "../../types/types";
 
 type AddToCartButtonProps = {
-  product: ProductType;
+  product: Product;
   classname: string;
 };
 
@@ -14,29 +14,29 @@ export const AddToCartButton = ({
 }: AddToCartButtonProps) => {
   const { productsInCart, addProductToCart, removeProductFromCart } =
     useCartContext();
-  const [qtdInCart, setQtdInCart] = useState(
-    productsInCart.find((p) => p.product.name === product.name)?.qtd || 0,
+  const [qtyInCart, setQtyInCart] = useState(
+    productsInCart.find((p) => p.product.name === product.name)?.qty || 0,
   );
 
   useEffect(() => {
-    setQtdInCart(
-      productsInCart.find((p) => p.product.name === product.name)?.qtd || 0,
+    setQtyInCart(
+      productsInCart.find((p) => p.product.name === product.name)?.qty || 0,
     );
   }, [productsInCart]);
 
   const handleAddToCart = () => {
     addProductToCart(product);
-    setQtdInCart(qtdInCart + 1);
+    setQtyInCart(qtyInCart + 1);
   };
 
   const handleRemoveFromCart = () => {
-    if (qtdInCart > 0) {
+    if (qtyInCart > 0) {
       removeProductFromCart(product.name);
-      setQtdInCart(qtdInCart - 1);
+      setQtyInCart(qtyInCart - 1);
     }
   };
 
-  if (qtdInCart === 0)
+  if (qtyInCart === 0)
     return (
       <div className={classname} onClick={handleAddToCart}>
         <img
@@ -50,7 +50,7 @@ export const AddToCartButton = ({
   return (
     <div
       className={cn(classname, {
-        "bg-red text-white justify-between px-4": qtdInCart > 0,
+        "bg-red text-white justify-between px-4": qtyInCart > 0,
       })}
     >
       <div
@@ -62,7 +62,7 @@ export const AddToCartButton = ({
           alt="Icon Remove From Cart"
         />
       </div>
-      <span>{qtdInCart}</span>
+      <span>{qtyInCart}</span>
       <div
         className="cursor-pointer border-2 border-white rounded-full w-5 h-5 flex items-center justify-center"
         onClick={handleAddToCart}

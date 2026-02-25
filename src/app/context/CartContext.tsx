@@ -4,17 +4,13 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { ProductType } from "../../types/types";
+import type { Product, ProductInCart } from "../../types/types";
 
-export type ProductsInCartType = {
-  product: ProductType;
-  qtd: number;
-}
 
 type CartContextType = {
-  productsInCart: ProductsInCartType[];
+  productsInCart: ProductInCart[];
   clearCart: (productName?: string) => void;
-  addProductToCart: (product: ProductType) => void;
+  addProductToCart: (product: Product) => void;
   removeProductFromCart: (productName: string) => void;
 };
 
@@ -23,21 +19,21 @@ export const CartContext = createContext<CartContextType | undefined>(
 );
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [productsInCart, setProductsInCart] = useState<ProductsInCartType[]>([]);
+  const [productsInCart, setProductsInCart] = useState<ProductInCart[]>([]);
 
-  const addProductToCart = (product: ProductType) => {
+  const addProductToCart = (product: Product) => {
     const p = productsInCart.find(p => p.product.name === product.name);
     if (p) {
-      setProductsInCart(prev => prev.map(p => p.product.name === product.name ? { ...p, qtd: p.qtd + 1 } : p));
+      setProductsInCart(prev => prev.map(p => p.product.name === product.name ? { ...p, qty: p.qty + 1 } : p));
     } else {
-      setProductsInCart(prev => [...prev, { product: product, qtd: 1 }]);
+      setProductsInCart(prev => [...prev, { product: product, qty: 1 }]);
     }
   }
 
   const removeProductFromCart = (productName: string) => {
     const p = productsInCart.find(p => p.product.name === productName);
-    if (p && p.qtd > 1) {
-      setProductsInCart(prev => prev.map(p => p.product.name === productName ? { ...p, qtd: p.qtd - 1 } : p));
+    if (p && p.qty > 1) {
+      setProductsInCart(prev => prev.map(p => p.product.name === productName ? { ...p, qty: p.qty - 1 } : p));
     } else {
       setProductsInCart(prev => prev.filter(p => p.product.name !== productName));
     }
