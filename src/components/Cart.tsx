@@ -42,7 +42,7 @@ export const Cart = () => {
   );
 
   return (
-    <div className="flex flex-col bg-white w-full h-auto rounded-xl mt-4">
+    <div className="flex flex-col bg-white w-full h-auto rounded-xl">
       <h2 className="text-red">{`Your Cart (${productsInCart.reduce((acc, p) => acc + p.qtd, 0)})`}</h2>
       {productsInCart.length === 0 ? (
         <div className="flex flex-col gap-1 items-center justify-center mt-8 w-full">

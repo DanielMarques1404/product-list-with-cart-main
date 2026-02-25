@@ -19,10 +19,10 @@ function App() {
 
   return (
     <CartProvider>
-      <div className="flex gap-4 items-start justify-center p-2">
-        <div className="flex flex-col items-start gap-4 w-3/4">
+      <div className="flex gap-2 items-start justify-center p-4">
+        <div className="flex flex-col items-start gap-4 w-3/4 ml-6">
           <h1>Desserts</h1>
-          <ul className="flex flex-wrap gap-2">
+          <ul className="flex flex-wrap gap-4">
             {data.map((product, index) => (
               <li key={`card-${index}`}>
                 <Card product={product} />
@@ -31,7 +31,9 @@ function App() {
           </ul>
         </div>
         <div className="w-1/4">
-          <Cart />
+          <div className="fixed m-6">
+            <Cart />
+          </div>
         </div>
       </div>
     </CartProvider>
