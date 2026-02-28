@@ -9,6 +9,7 @@ import type { Product, ProductInCart } from "../../types/types";
 
 type CartContextType = {
   productsInCart: ProductInCart[];
+  existsInCart: (productName: string) => boolean;
   clearCart: (productName?: string) => void;
   addProductToCart: (product: Product) => void;
   removeProductFromCart: (productName: string) => void;
@@ -47,8 +48,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   }
 
+  const existsInCart = (productName: string) => {
+    return productsInCart.some(p => p.product.name === productName);
+  }
+
   const value = {
     productsInCart,
+    existsInCart,
     addProductToCart,
     removeProductFromCart,
     clearCart,

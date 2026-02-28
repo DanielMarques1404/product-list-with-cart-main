@@ -1,20 +1,22 @@
+import { useCartContext } from "../app/hooks/useCartContext";
+import { cn } from "../libs/cn";
 import type { Product } from "../types/types";
-import { AddToCartButton } from "./ui/AddToCartButton";
+import { CartItemButton } from "./layout/CartItems";
 
-type CardProps = {
-  product: Product;
-};
 
-export const Card = ({ product }: CardProps) => {
+export const Card = ({product}: {product:Product}) => {
+  const { existsInCart } = useCartContext();
+  const isProductInCart = existsInCart(product.name);
+
   return (
     <div className="flex flex-col gap-6 m-1 select-none">
-      <div className="relative flex flex-1 w-68 items-center justify-center">
+      <div className={cn("relative flex flex-1 w-68 items-center justify-center", {"border-2 border-red rounded-xl" : isProductInCart})}>
         <img
           src={product.image.desktop}
           alt="Product Image"
           className="rounded-xl"
         />
-        <AddToCartButton classname="absolute flex gap-2 items-center justify-center rounded-2xl p-2 border border-black shadow-xl w-3/4 z-1 -bottom-4.5 bg-white cursor-pointer" product={product} />
+        <CartItemButton classname="absolute flex gap-2 items-center justify-center rounded-2xl p-2 border border-black shadow-xl w-3/4 -bottom-4.5 bg-white cursor-pointer" product={product} />
       </div>
       <div className="flex flex-col items-start">
         <span className="text-rose-400">{product.category}</span>
