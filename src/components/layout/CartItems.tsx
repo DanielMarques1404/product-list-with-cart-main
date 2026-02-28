@@ -53,21 +53,22 @@ export const CartItemButton = ({ product, classname }: CartItemProps) => {
       })}
     >
       <div
-        className="cursor-pointer border-2 border-white rounded-full w-5 h-5 flex items-center justify-center"
+        className="group cursor-pointer border-2 border-white rounded-full w-5 h-5 flex items-center justify-center hover:bg-white"
         onClick={handleRemoveFromCart}
       >
         <img
           src="./assets/images/icon-decrement-quantity.svg"
           alt="Icon Remove From Cart"
+          className="group-hover:invert"
         />
       </div>
       <span>{qtyInCart}</span>
       <div
-        className="cursor-pointer border-2 border-white rounded-full w-5 h-5 flex items-center justify-center"
+        className="group cursor-pointer border-2 border-white rounded-full w-5 h-5 flex items-center justify-center hover:bg-white"
         onClick={handleAddToCart}
       >
         <img
-          className="cursor-pointer"
+          className="cursor-pointer group-hover:invert"
           src="./assets/images/icon-increment-quantity.svg"
           alt="Icon Add to Cart"
         />
@@ -107,10 +108,10 @@ export const CartItem = ({ product }: { product: Product }) => {
       </div>
 
       <div
-        className="flex items-center justify-start cursor-pointer border border-rose-300 p-[0.15rem] rounded-full"
+        className="group flex items-center justify-start cursor-pointer border border-rose-300 hover:border-rose-500 p-[0.15rem] rounded-full"
         onClick={handleRemoveItem}
       >
-        <img src="./assets/images/icon-remove-item.svg" alt="Remove Item" />
+        <img src="./assets/images/icon-remove-item.svg" alt="Remove Item" className="group-hover:brightness-75" />
       </div>
     </div>
   );
@@ -131,12 +132,11 @@ export const CartItemSummary = ({ product }: { product: Product }) => {
     setQty(updatedProductInCart?.qty || 0);
   }, [productsInCart]);
 
-
   return (
     <div className="flex gap-2 items-center justify-between px-4 py-2 bg-rose-50 ">
-        <div className="w-12 h-12 m-2">
-            <img src={product.image.thumbnail} alt={product.name} />
-        </div>
+      <div className="w-12 h-12 m-2">
+        <img src={product.image.thumbnail} alt={product.name} />
+      </div>
       <div className="flex-1 items-center justify-start ">
         <span className="flex justify-start font-medium">{product.name}</span>
         <div className="flex justify-start gap-2">

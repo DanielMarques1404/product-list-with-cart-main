@@ -86,7 +86,7 @@ export const Cart = () => {
             </div>
 
             <div
-              className="flex items-center justify-center p-2 bg-red text-white font-medium cursor-pointer rounded-2xl w-full my-3"
+              className="flex items-center justify-center p-2 bg-red text-white font-medium cursor-pointer rounded-2xl w-full my-3 hover:bg-rose-800"
               onClick={handleOpen}
             >
               <span>Confirm Order</span>

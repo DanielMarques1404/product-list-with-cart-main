@@ -4,7 +4,6 @@ import { CartProvider } from "./app/context/CartContext";
 import { Card } from "./components/Card";
 import { Cart } from "./components/Cart";
 import type { Product } from "./types/types";
-import { ConfirmOrder } from "./components/ConfirmOrder";
 
 function App() {
   const [data, setData] = useState<Product[]>([]);

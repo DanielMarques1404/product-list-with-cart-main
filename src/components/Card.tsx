@@ -16,7 +16,7 @@ export const Card = ({product}: {product:Product}) => {
           alt="Product Image"
           className="rounded-xl"
         />
-        <CartItemButton classname="absolute flex gap-2 items-center justify-center rounded-2xl p-2 border border-black shadow-xl w-3/4 -bottom-4.5 bg-white cursor-pointer" product={product} />
+        <CartItemButton classname="absolute flex gap-2 items-center justify-center rounded-2xl p-2 border border-black shadow-xl w-3/4 -bottom-4.5 bg-white cursor-pointer hover:border hover:border-red" product={product} />
       </div>
       <div className="flex flex-col items-start">
         <span className="text-rose-400">{product.category}</span>
