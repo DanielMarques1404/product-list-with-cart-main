@@ -19,8 +19,8 @@ function App() {
 
   return (
     <CartProvider>
-      <div className="flex gap-2 items-start justify-center p-4">
-        <div className="flex flex-col items-start gap-4 w-3/4 ml-6">
+      <div className="flex flex-col sm:flex-row gap-2 items-start justify-center p-4">
+        <div className="flex flex-col items-start gap-4 sm:w-1/2 lg:w-3/4 ml-6">
           <h1>Desserts</h1>
           <ul className="flex flex-wrap gap-4">
             {data.map((product, index) => (
@@ -30,8 +30,8 @@ function App() {
             ))}
           </ul>
         </div>
-        <div className="w-1/4">
-          <div className="fixed m-6">
+        <div className="sm:w-1/2 lg:w-1/4">
+          <div className="sm:fixed m-6">
             <Cart />
           </div>
         </div>
