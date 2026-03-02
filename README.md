@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [](https://github.com/DanielMarques1404/product-list-with-cart-main)
-- Live Site URL: [](https://product-list-with-cart-main-tau.vercel.app)
+- Solution URL: [@github](https://github.com/DanielMarques1404/product-list-with-cart-main)
+- Live Site URL: [@product-list_with-cart-main](https://product-list-with-cart-main-tau.vercel.app)
 
 ## My process
 
