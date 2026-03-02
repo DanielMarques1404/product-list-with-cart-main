@@ -9,7 +9,7 @@ function App() {
   const [data, setData] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("./data.json")
+    fetch("./assets/data.json")
       .then((response) => response.json())
       .then((jsonData) => setData(jsonData))
       .catch((error) => console.error("Error fetching data:", error));
