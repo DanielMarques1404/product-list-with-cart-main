@@ -20,7 +20,7 @@ export const ConfirmOrder = ({ handleClose }: ConfirmOrderProps) => {
   return (
     <div className="flex flex-col gap-2 bg-white rounded-xl m-auto w-full p-4 max-h-[90vh]">
       <img
-        src="./assets/images/icon-order-confirmed.svg"
+        src="/assets/images/icon-order-confirmed.svg"
         alt="icon-confirmed"
         className="w-12 h-12"
       />

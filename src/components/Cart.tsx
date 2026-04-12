@@ -4,34 +4,6 @@ import { ConfirmOrder } from "./ConfirmOrder";
 import { CartItem } from "./layout/CartItems";
 import Modal from "./layout/Modal";
 
-// export const CartItem = ({ product, qty }: ProductInCart) => {
-//   const { clearCart } = useCartContext();
-
-//   const handleRemoveItem = () => {
-//     clearCart(product.name);
-//   };
-
-//   return (
-//     <div className="flex items-center justify-between p-2 border-b border-rose-300">
-//       <div className="flex flex-col justify-center gap-2">
-//         <span className="font-medium">{product.name}</span>
-//         <div className="flex gap-2 items-center">
-//           <span className="text-red font-bold">{`${qty}x`}</span>
-//           <span className="text-rose-400 font-small">{`@ $${Number(product.price).toFixed(2)}`}</span>
-//           <span className="text-rose-500 font-medium">{`$${Number(product.price * qty).toFixed(2)}`}</span>
-//         </div>
-//       </div>
-
-//       <div
-//         className="flex items-center justify-start cursor-pointer border border-rose-300 p-[0.15rem] rounded-full"
-//         onClick={handleRemoveItem}
-//       >
-//         <img src="./assets/images/icon-remove-item.svg" alt="Remove Item" />
-//       </div>
-//     </div>
-//   );
-// };
-
 export const Cart = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -51,7 +23,7 @@ export const Cart = () => {
         {productsInCart.length === 0 ? (
           <div className="flex flex-col gap-1 items-center justify-center mt-8 w-full">
             <img
-              src="./assets/images/illustration-empty-cart.svg"
+              src="/assets/images/illustration-empty-cart.svg"
               alt="Empty Cart"
             />
             <span className="text-rose-500 font-medium">
@@ -77,7 +49,7 @@ export const Cart = () => {
 
             <div className="flex gap-2 bg-rose-50 text-rose-500 text-sm items-center justify-center p-2">
               <img
-                src="./assets/images/icon-carbon-neutral.svg"
+                src="/assets/images/icon-carbon-neutral.svg"
                 alt="Carbon Neutral"
               />
               <span>

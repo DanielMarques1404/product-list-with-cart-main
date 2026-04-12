@@ -38,10 +38,7 @@ export const CartItemButton = ({ product, classname }: CartItemProps) => {
   if (qtyInCart === 0)
     return (
       <div className={classname} onClick={handleAddToCart}>
-        <img
-          src="./assets/images/icon-add-to-cart.svg"
-          alt="Icon Add to Cart"
-        />
+        <img src="/assets/images/icon-add-to-cart.svg" alt="Icon Add to Cart" />
         <span>Add to Cart</span>
       </div>
     );
@@ -57,7 +54,7 @@ export const CartItemButton = ({ product, classname }: CartItemProps) => {
         onClick={handleRemoveFromCart}
       >
         <img
-          src="./assets/images/icon-decrement-quantity.svg"
+          src="/assets/images/icon-decrement-quantity.svg"
           alt="Icon Remove From Cart"
           className="group-hover:invert"
         />
@@ -69,7 +66,7 @@ export const CartItemButton = ({ product, classname }: CartItemProps) => {
       >
         <img
           className="cursor-pointer group-hover:invert"
-          src="./assets/images/icon-increment-quantity.svg"
+          src="/assets/images/icon-increment-quantity.svg"
           alt="Icon Add to Cart"
         />
       </div>
@@ -111,7 +108,11 @@ export const CartItem = ({ product }: { product: Product }) => {
         className="group flex items-center justify-start cursor-pointer border border-rose-300 hover:border-rose-500 p-[0.15rem] rounded-full"
         onClick={handleRemoveItem}
       >
-        <img src="./assets/images/icon-remove-item.svg" alt="Remove Item" className="group-hover:brightness-75" />
+        <img
+          src="/assets/images/icon-remove-item.svg"
+          alt="Remove Item"
+          className="group-hover:brightness-75"
+        />
       </div>
     </div>
   );
